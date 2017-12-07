@@ -332,7 +332,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'/sfciPrep')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(2),'/sfciPrep')]",
       "apiVersion": "2015-06-15",
       "location": "[resourceGroup().location]",
       "dependsOn": [
