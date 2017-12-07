@@ -62,7 +62,7 @@
     },
     "adminPassword": {
       "type": "securestring",
-      "minLength": 12,
+      "minLength": 10,
       "metadata": {
         "description": "Password for the Administrator account."
       }
