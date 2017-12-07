@@ -5,9 +5,9 @@
     "namePrefix": {
       "type": "string",
       "minLength": 3,
-      "maxLength": 15,
+      "maxLength": 14,
       "metadata": {
-        "description": "Naming prefix for each new resource created. 3-char min, 15-char max, lowercase alphanumeric"
+        "description": "Naming prefix for each new resource created. 3-char min, 14-char max, lowercase alphanumeric"
       }
     },
     "iteration": { 
