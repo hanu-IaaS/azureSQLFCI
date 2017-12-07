@@ -10,6 +10,14 @@
         "description": "Naming prefix for each new resource created. 3-char min, 8-char max, lowercase alphanumeric"
       }
     },
+    "iteration": { 
+      "type": "array", 
+      "defaultValue": [ 
+          "a", 
+          "b", 
+          "c" 
+       ] 
+   },
     "domainName": {
       "type": "string",
       "metadata": {
@@ -240,7 +248,7 @@
       }
     },
     {
-      "name": "[concat(variables('vmNamePrefix'), copyindex(1), '-nic')]",
+      "name": "[concat(variables('vmNamePrefix'), parameters('iteration')[copyIndex()], '-nic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
@@ -277,7 +285,7 @@
         "name": "virtualMachineLoop",
         "count": "[parameters('vmCount')]"
       },
-      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'-newVM')]",
+      "name": "[concat(variables('vmNamePrefix'),parameters('iteration')[copyIndex()],'-newVM')]",
       "dependsOn": [
         "nicLoop",
         "[resourceId('Microsoft.Compute/availabilitySets', variables('vmAvailabilitySetName'))]"
@@ -289,7 +297,7 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat(variables('vmNamePrefix'), copyindex(1))]"
+            "value": "[concat(variables('vmNamePrefix'), parameters('iteration')[copyIndex()])]"
           },
           "vmAvailabilitySetName": {
             "value": "[variables('vmAvailabilitySetName')]"
@@ -332,7 +340,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),copyindex(2),'/sfciPrep')]",
+      "name": "[concat(variables('vmNamePrefix'),parameters('iteration')[copyIndex(1)],'/sfciPrep')]",
       "apiVersion": "2015-06-15",
       "location": "[resourceGroup().location]",
       "dependsOn": [
