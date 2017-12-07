@@ -22,3 +22,6 @@ This template creates the following resources by default:
 	+ 	SQL Server 2016 SP1 and Windows Server 2016 Datacenter Edition - Latest Image
 
 +	To successfully deploy this template, be sure that the subnet to which the storage nodes are being deployed already exists on the specified Azure virtual network, AND this subnet should be defined in Active Directory Sites and Services for the appropriate AD site in which the closest domain controllers are configured.
+
+## Modifications Made
+* Changed the prefix so that it will create sql servers with suffix 'a' and 'b' to them 
