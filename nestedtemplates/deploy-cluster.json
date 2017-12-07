@@ -130,7 +130,7 @@
   "variables": {
     "apiVersionStorage": "2016-01-01",
     "storageNamePrefix": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'vm')]",
-    "witnessStorageName": "[concat(parameters('namePrefix'),'saslrs')]",
+    "witnessStorageName": "[concat('sastdsfci',uniqueString(resourceGroup().id) )]",
     "witnessStorageType": "Standard_LRS",
     "vmNamePrefix": "[concat(parameters('namePrefix'),'')]",
     "vmAvailabilitySetName": "[concat(variables('vmNamePrefix'),'as')]",
