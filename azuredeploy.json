@@ -10,6 +10,12 @@
         "description": "Naming prefix for each new resource created. 3-char min, 14-char max, lowercase alphanumeric."
       }
     },
+    "sqlClusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "sql cluster name you want as it may be different to vm name"
+      }
+    },
     "storageAccountType": {
       "type": "string",
       "allowedValues": [

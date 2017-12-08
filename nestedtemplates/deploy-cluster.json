@@ -18,6 +18,12 @@
           "c" 
        ] 
    },
+   "sqlClusterName": {
+    "type": "string",
+    "metadata": {
+      "description": "sql cluster name you want as it may be different to vm name"
+    }
+  },
     "domainName": {
       "type": "string",
       "metadata": {
@@ -135,7 +141,7 @@
     "vmNamePrefix": "[concat(parameters('namePrefix'),'')]",
     "vmAvailabilitySetName": "[concat(variables('vmNamePrefix'),'as')]",
     "clusterName": "[concat(variables('vmNamePrefix'),'')]",
-    "sqlClusterName": "[concat(variables('vmNamePrefix'),'sql')]",
+    "sqlClusterName": "[concat(variables('sqlClusterName'),'sql')]",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
     "sfciPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-sfci.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "sfciPrepFunction": "PrepSFCI.ps1\\PrepSFCI",
