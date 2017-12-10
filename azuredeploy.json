@@ -5,9 +5,15 @@
     "namePrefix": {
       "type": "string",
       "minLength": 3,
-      "maxLength": 8,
+      "maxLength": 14,
       "metadata": {
-        "description": "Naming prefix for each new resource created. 3-char min, 8-char max, lowercase alphanumeric."
+        "description": "Naming prefix for each new resource created. 3-char min, 14-char max, lowercase alphanumeric."
+      }
+    },
+    "sqlClusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "sql cluster name you want as it may be different to vm name"
       }
     },
     "storageAccountType": {
@@ -62,7 +68,7 @@
     },
     "adminPassword": {
       "type": "securestring",
-      "minLength": 12,
+      "minLength": 10,
       "metadata": {
         "description": "Password for the Administrator account."
       }
@@ -109,7 +115,7 @@
       "metadata": {
         "description": "Location of resources that the script is dependent on such as linked templates and DSC modules"
       },
-      "defaultValue": "https://raw.githubusercontent.com/MSBrett/azure-quickstart-templates/master/sql-server-2016-fci-existing-vnet-and-ad"
+      "defaultValue": "https://raw.githubusercontent.com/DanielMabbett/azureSQLFCI/master"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
@@ -149,6 +155,9 @@
           },
           "adminPassword": {
             "value": "[parameters('adminPassword')]"
+          },
+          "sqlClusterName": {
+            "value": "[parameters('sqlClusterName')]"
           },
           "svcUsername": {
             "value": "[parameters('svcUsername')]"
