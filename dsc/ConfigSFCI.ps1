@@ -128,20 +128,20 @@ configuration ConfigSFCI
             DependsOn = "[xComputer]DomainJoin"
         }
 
-        xCluster FailoverCluster
-        {
-            Name = $ClusterName
-            DomainAdministratorCredential = $DomainCreds
-            Nodes = $Nodes
-	        DependsOn = "[Script]MoveClusterGroups0"
-        }
+        # xCluster FailoverCluster
+        # {
+        #     Name = $ClusterName
+        #     DomainAdministratorCredential = $DomainCreds
+        #     Nodes = $Nodes
+	    #     DependsOn = "[Script]MoveClusterGroups0"
+        # }
 
         Script CloudWitness
         {
             SetScript = "Set-ClusterQuorum -CloudWitness -AccountName ${witnessStorageName} -AccessKey $($witnessStorageKey.GetNetworkCredential().Password)"
             TestScript = "(Get-ClusterQuorum).QuorumResource.Name -eq 'Cloud Witness'"
             GetScript = "@{Ensure = if ((Get-ClusterQuorum).QuorumResource.Name -eq 'Cloud Witness') {'Present'} else {'Absent'}}"
-            DependsOn = "[xCluster]FailoverCluster"
+            # DependsOn = "[xCluster]FailoverCluster"
         }
 
         Script IncreaseClusterTimeouts
