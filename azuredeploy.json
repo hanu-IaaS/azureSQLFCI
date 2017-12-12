@@ -16,6 +16,12 @@
         "description": "sql cluster name you want as it may be different to vm name"
       }
     },
+    "clusterNumber": {
+      "type": "string",
+      "metadata": {
+        "description": "cluster number"
+      }
+    },
     "storageAccountType": {
       "type": "string",
       "allowedValues": [
@@ -158,6 +164,9 @@
           },
           "sqlClusterName": {
             "value": "[parameters('sqlClusterName')]"
+          },
+          "clusterNumber": {
+            "value": "[parameters('clusterNumber')]"
           },
           "svcUsername": {
             "value": "[parameters('svcUsername')]"

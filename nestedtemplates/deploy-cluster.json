@@ -30,6 +30,12 @@
         "description": "DNS domain name for existing Active Directory domain"
       }
     },
+    "clusterNumber": {
+      "type": "string",
+      "metadata": {
+        "description": "cluster number"
+      }
+    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -147,7 +153,7 @@
     "sfciPrepFunction": "PrepSFCI.ps1\\PrepSFCI",
     "sfciConfigModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/config-sfci.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "sfciConfigFunction": "ConfigSFCI.ps1\\ConfigSFCI",
-    "ilbName": "[concat(parameters('namePrefix'),'-ilb')]",
+    "ilbName": "[concat(parameters('namePrefix'),parameters('clusterNumber'),'-ilb')]",
     "ilbID": "[resourceId('Microsoft.Network/loadBalancers',variables('ilbName'))]",
     "ilbFE": "[concat(parameters('namePrefix'),'-ilb-fe')]",
     "ilbBE": "[concat(parameters('namePrefix'),'-ilb-be')]",
