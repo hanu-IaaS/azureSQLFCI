@@ -142,7 +142,7 @@
   "variables": {
     "apiVersionStorage": "2016-01-01",
     "storageNamePrefix": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'vm')]",
-    "witnessStorageName": "[concat('sastdsfci2',uniqueString(resourceGroup().id) )]",
+    "witnessStorageName": "[concat('sastdsfci',parameters('clusterNumber'),uniqueString(resourceGroup().id) )]",
     "witnessStorageType": "Standard_LRS",
     "vmNamePrefix": "[concat(parameters('namePrefix'),'')]",
     "vmAvailabilitySetName": "[concat(variables('vmNamePrefix'),'as')]",
@@ -153,7 +153,7 @@
     "sfciPrepFunction": "PrepSFCI.ps1\\PrepSFCI",
     "sfciConfigModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/config-sfci.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "sfciConfigFunction": "ConfigSFCI.ps1\\ConfigSFCI",
-    "ilbName": "[concat(parameters('namePrefix'),parameters('clusterNumber'),'-ilb')]",
+    "ilbName": "[concat(parameters('namePrefix'),'-ilb')]",
     "ilbID": "[resourceId('Microsoft.Network/loadBalancers',variables('ilbName'))]",
     "ilbFE": "[concat(parameters('namePrefix'),'-ilb-fe')]",
     "ilbBE": "[concat(parameters('namePrefix'),'-ilb-be')]",
