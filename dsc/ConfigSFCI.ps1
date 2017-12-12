@@ -128,13 +128,13 @@ configuration ConfigSFCI
             DependsOn = "[xComputer]DomainJoin"
         }
 
-        # xCluster FailoverCluster
-        # {
-        #     Name = $ClusterName
-        #     DomainAdministratorCredential = $DomainCreds
-        #     Nodes = $Nodes
-	    #     DependsOn = "[Script]MoveClusterGroups0"
-        # }
+        xCluster FailoverCluster
+        {
+            Name = $ClusterName
+            DomainAdministratorCredential = $DomainCreds
+            Nodes = $Nodes
+	        DependsOn = "[Script]MoveClusterGroups0"
+        }
 
         Script CloudWitness
         {
