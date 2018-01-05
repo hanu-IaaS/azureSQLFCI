@@ -91,6 +91,12 @@ configuration ConfigSFCI
             Ensure = "Present"
         }
 
+        WindowsFeature Telnet
+        {
+            Name = "Telnet-Client"
+            Ensure = "Present"
+        }
+
         WindowsFeature ADPS
         {
             Name = "RSAT-AD-PowerShell"
