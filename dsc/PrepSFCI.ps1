@@ -56,6 +56,12 @@ configuration PrepSFCI
             Ensure = "Present"
         }
 
+        WindowsFeature Telnet
+        {
+            Name = "Telnet-Client"
+            Ensure = "Present"
+        }
+
         WindowsFeature FS
         {
             Name = "FS-FileServer"
