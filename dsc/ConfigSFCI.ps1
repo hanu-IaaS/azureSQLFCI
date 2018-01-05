@@ -97,7 +97,7 @@ configuration ConfigSFCI
             Ensure = "Present"
         }
 
-        WindowsFeature AS-Dist-Transaction
+        WindowsFeature ASDistTransaction
         {
             Name = "AS-Dist-Transaction"
             Ensure = "Present"
