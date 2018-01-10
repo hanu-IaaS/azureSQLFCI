@@ -153,7 +153,7 @@
     "sfciPrepFunction": "PrepSFCI.ps1\\PrepSFCI",
     "sfciConfigModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/config-sfci.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "sfciConfigFunction": "ConfigSFCI.ps1\\ConfigSFCI",
-    "ilbName": "[concat(parameters('namePrefix'),'-ilb')]",
+    "ilbName": "[concat('inlb-',parameters('namePrefix'))]",
     "ilbID": "[resourceId('Microsoft.Network/loadBalancers',variables('ilbName'))]",
     "ilbFE": "[concat(parameters('namePrefix'),'-ilb-fe')]",
     "ilbBE": "[concat(parameters('namePrefix'),'-ilb-be')]",
@@ -228,6 +228,24 @@
             }
           },
           {
+            "name": "rdp-3389",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[variables('ilbFEConfigID1')]"
+              },
+              "backendAddressPool": {
+                "id": "[variables('ilbBEAddressPoolID')]"
+              },
+              "probe": {
+                "id": "[variables('ilbProbeID1')]"
+              },
+              "protocol": "Tcp",
+              "frontendPort": 3389,
+              "backendPort": 3389,
+              "enableFloatingIP": true
+            }
+          },
+          {
             "name": "sql-445",
             "properties": {
               "frontendIPConfiguration": {
@@ -251,7 +269,7 @@
             "name": "[variables('ilbProbe1')]",
             "properties": {
               "protocol": "Tcp",
-              "port": 37000,
+              "port": 3389,
               "intervalInSeconds": 5,
               "numberOfProbes": 2
             }
