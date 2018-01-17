@@ -310,6 +310,33 @@
       }
     },
     {
+      "name": "[concat(variables('vmNamePrefix'), parameters('iteration')[copyIndex()], '-nic02')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2016-09-01",
+      "copy": {
+        "name": "nicLoop",
+        "count": "[parameters('vmCount')]"
+      },
+      "dependsOn": [
+        "[variables('ilbID')]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[parameters('nicSubnetUri')]"
+              }
+            }
+          }
+        ],
+        "enableAcceleratedNetworking": true 
+      }
+    },
+    {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
       "copy": {
