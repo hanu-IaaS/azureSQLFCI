@@ -25,3 +25,5 @@ This template creates the following resources by default:
 
 ## Modifications Made
 * Changed the prefix so that it will create sql servers with suffix 'a' and 'b' to them 
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
